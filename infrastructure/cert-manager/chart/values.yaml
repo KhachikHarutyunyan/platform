@@ -1,6 +1,10 @@
 crds:
   enabled: false
 
+global:
+  leaderElection:
+    namespace: cert-manager
+
 # --- Controller ---
 replicaCount: 1
 
@@ -74,7 +78,7 @@ cainjector:
 prometheus:
   enabled: true
   servicemonitor:
-    enabled: true
+    enabled: false
     labels:
       release: kube-prometheus-stack
 
