@@ -69,9 +69,6 @@ cainjector:
     readOnlyRootFilesystem: true
     runAsNonRoot: true
 
-# --- Network Policy ---
-networkPolicy:
-  enabled: true
 
 # --- Prometheus ServiceMonitor ---
 prometheus:
