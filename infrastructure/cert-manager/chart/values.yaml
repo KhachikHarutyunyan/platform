@@ -49,8 +49,8 @@ webhook:
     ingress:
       - from:
         - namespaceSelector: {}
-      ports:
-        - port: 10250
+        ports:
+          - port: 10250
 
 # --- CA Injector ---
 cainjector:
