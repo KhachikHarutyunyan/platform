@@ -1,0 +1,86 @@
+crds:
+  enabled: false
+
+# --- Controller ---
+replicaCount: 1
+
+resources:
+  requests:
+    cpu: 50
+    memory: 128Mi
+  limits:
+    cpu: 300m
+    memory: 256Mi
+
+securityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["ALL"]
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+
+livenessProbe:
+  enabled: true
+  initialDelaySeconds: 60
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 5
+
+# --- Webhook ---
+webhook:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 20m
+      memory: 64Mi
+    limits:
+      cpu: 100m
+      memory: 128Mi
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+  networkPolicy:
+    enabled: true
+    ingress:
+      - from:
+        - namespaceSelector: {}
+      ports:
+        - port: 10250
+
+# --- CA Injector ---
+cainjector:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 10m
+      memory: 64Mi
+    limits:
+      cpu: 100m
+      memory: 256Mi
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+
+# --- Network Policy ---
+networkPolicy:
+  enabled: true
+
+# --- Prometheus ServiceMonitor ---
+prometheus:
+  enabled: true
+  servicemonitor:
+    enabled: true
+    labels:
+      release: kube-prometheus-stack
+
+# --- PDB ---
+podDisruptionBudget:
+  enabled: false
