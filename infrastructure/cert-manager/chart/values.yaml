@@ -48,7 +48,7 @@ webhook:
     enabled: true
     ingress:
       - from:
-        - namespaceSelector: {}
+          - namespaceSelector: {}
         ports:
           - port: 10250
 
