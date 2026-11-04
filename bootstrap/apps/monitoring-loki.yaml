@@ -16,7 +16,7 @@ spec:
       helm:
         releaseName: loki
         valueFiles:
-          - $values/infrastucture/monitoring/loki/values.yaml
+          - $values/infrastructure/monitoring/loki/values.yaml
     - repoURL: "https://github.com/KhachikHarutyunyan/platform.git"
       targetRevision: main
       ref: values
@@ -29,3 +29,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+
