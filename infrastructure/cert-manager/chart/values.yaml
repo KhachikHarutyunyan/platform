@@ -35,6 +35,7 @@ livenessProbe:
 # --- Webhook ---
 webhook:
   replicaCount: 1
+  timeoutSeconds: 30
   resources:
     requests:
       cpu: 20m
@@ -55,6 +56,9 @@ webhook:
           - namespaceSelector: {}
         ports:
           - port: 10250
+
+startupapicheck:
+  timeout: 5m
 
 # --- CA Injector ---
 cainjector:
