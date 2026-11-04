@@ -11,7 +11,7 @@ spec:
   sourceRepos:
     - "https://github.com/KhachikHarutyunyan/platform.git"
     - "https://charts.jetstack.io"
-    - "oci://docker.io/envoyproxy"
+    - "oci://registry-1.docker.io/envoyproxy"
   destinations:
     - server: https://kubernetes.default.svc
       namespace: "argocd"
