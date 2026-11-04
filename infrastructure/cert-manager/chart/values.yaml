@@ -49,7 +49,7 @@ webhook:
     readOnlyRootFilesystem: true
     runAsNonRoot: true
   networkPolicy:
-    enabled: true
+    enabled: false
     ingress:
       - from:
           - namespaceSelector: {}
