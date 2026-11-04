@@ -55,6 +55,8 @@ webhook:
     ingress:
       - from:
           - namespaceSelector: {}
+          - ipBlock:
+              cidr: 192.168.56.0/24 
         ports:
           - port: 10260
 
