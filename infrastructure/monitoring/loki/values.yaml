@@ -7,6 +7,14 @@ singleBinary:
     size: 10Gi
     storageClass: local-path
     enableStatefulSetAutoDeletePVC: false
+  # --- Resources ---
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
 
 # --- ServiceMonitor ---
 monitoring:
@@ -35,13 +43,4 @@ loki:
     retention_delete_worker_count: 150
     working_directory: /var/loki/compacter
     shared_store: filesystem
-
-# --- Resources ---
-resources:
-  requests:
-    cpu: 100m
-    memory: 256Mi
-  limits:
-    cpu: 500m
-    memory: 512Mi
 
