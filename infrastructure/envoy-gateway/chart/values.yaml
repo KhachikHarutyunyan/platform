@@ -1,0 +1,30 @@
+# --- Controller ---
+deployment:
+  replicas: 1
+  envoyGateway:
+    resources:
+      requests:
+        cpu: 50m
+        memory: 128Mi
+      limits:
+        cpu: 300m
+        memory: 256Mi
+
+# --- CRD ---
+crds:
+  enabled: false
+
+# --- Kubernetes provider ---
+config:
+  envoyGateway:
+    provider:
+      type: Kubernetes
+    logging:
+      level:
+        default: info
+
+# --- Prometheus ServiceMonitor ---
+telemetry:
+  metrics:
+    prometheus:
+      disable: false
