@@ -11,7 +11,7 @@ spec:
   project: platform
   source:
     repoURL: oci://registry-1.docker.io/envoyproxy/gateway-crds-helm
-    path: .
+    chart: gateway-crds-helm
     targetRevision: v1.8.0
     helm:
       values: |
