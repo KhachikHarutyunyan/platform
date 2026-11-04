@@ -13,6 +13,8 @@ spec:
     - "https://charts.jetstack.io"
     - "oci://registry-1.docker.io/envoyproxy/gateway-helm"
     - "oci://registry-1.docker.io/envoyproxy/gateway-crds-helm"
+    - "https://grafana-community.github.io/helm-charts"
+    - "https://fluent.github.io/helm-charts"
   destinations:
     - server: https://kubernetes.default.svc
       namespace: "argocd"
