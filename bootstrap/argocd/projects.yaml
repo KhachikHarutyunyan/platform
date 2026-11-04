@@ -37,7 +37,11 @@ spec:
     - group: cert-manager.io
       kind: ClusterIssuer
     - group: ""
-      kind: Namespace 
+      kind: Namespace
+    - group: admissionregistration.k8s.io
+      kind: ValidatingAdmissionPolicy
+    - group: admissionregistration.k8s.io
+      kind: ValidatingAdmissionPolicyBinding
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject

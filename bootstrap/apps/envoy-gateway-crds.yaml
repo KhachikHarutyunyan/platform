@@ -10,7 +10,7 @@ metadata:
 spec:
   project: platform
   source:
-    repoURL: oci://docker.io/envoyproxy
+    repoURL: registry-1.docker.io/envoyproxy/gateway-helm
     chart: gateway-crds-helm
     targetRevision: v1.8.0
     helm:
