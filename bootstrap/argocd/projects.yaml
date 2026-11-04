@@ -11,7 +11,7 @@ spec:
   sourceRepos:
     - "https://github.com/KhachikHarutyunyan/platform.git"
     - "https://charts.jetstack.io"
-    - "oci://registry-1.docker.io/envoyproxy"
+    - "oci://registry-1.docker.io/envoyproxy/gateway-helm"
   destinations:
     - server: https://kubernetes.default.svc
       namespace: "argocd"
@@ -36,6 +36,8 @@ spec:
       kind: ValidatingWebhookConfiguration
     - group: cert-manager.io
       kind: ClusterIssuer
+    - group: ""
+      kind: Namespace 
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject

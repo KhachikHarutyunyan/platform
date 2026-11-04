@@ -22,7 +22,7 @@ spec:
             enabled: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: envoy-gateway-system
   syncPolicy:
     automated:
       prune: false
