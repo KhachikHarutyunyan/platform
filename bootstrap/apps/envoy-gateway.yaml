@@ -9,7 +9,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: platform
-  source:
+  sources:
     - repoURL: oci://docker.io/envoyproxy
       chart: gateway-helm
       targetRevision: v1.8.0
