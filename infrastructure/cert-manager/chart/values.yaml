@@ -17,13 +17,15 @@ resources:
     memory: 256Mi
 
 securityContext:
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+
+containerSecurityContext:
   allowPrivilegeEscalation: false
   capabilities:
     drop: ["ALL"]
   readOnlyRootFilesystem: true
-  runAsNonRoot: true
-  seccompProfile:
-    type: RuntimeDefault
 
 livenessProbe:
   enabled: true
@@ -45,11 +47,14 @@ webhook:
       cpu: 100m
       memory: 128Mi
   securityContext:
+    seccompProfile:
+      type: RuntimeDefault
+    runAsNonRoot: true
+  containerSecurityContext:
     allowPrivilegeEscalation: false
     capabilities:
       drop: ["ALL"]
     readOnlyRootFilesystem: true
-    runAsNonRoot: true
   networkPolicy:
     enabled: true
     ingress:
@@ -74,11 +79,14 @@ cainjector:
       cpu: 100m
       memory: 256Mi
   securityContext:
+    seccompProfile:
+      type: RuntimeDefault
+    runAsNonRoot: true
+  containerSecurityContext:
     allowPrivilegeEscalation: false
     capabilities:
       drop: ["ALL"]
     readOnlyRootFilesystem: true
-    runAsNonRoot: true
 
 
 # --- Prometheus ServiceMonitor ---
