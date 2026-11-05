@@ -62,3 +62,15 @@ loki:
     retention_delete_worker_count: 150
     working_directory: /var/loki/compacter
     delete_request_store: filesystem
+
+# --- Disable Memcache (Enable in prod) ---
+chunksCache:
+  enabled: false
+resultsCache:
+  enabled: false
+memcached:
+  enabled: false
+
+# --- Disable Canary (Enable in prod) ---
+lokiCanary:
+  enabled: false
