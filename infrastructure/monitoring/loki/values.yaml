@@ -27,7 +27,7 @@ backend:
 # --- ServiceMonitor ---
 monitoring:
   serviceMonitor:
-    enabled: true
+    enabled: false
     labels:
       release: kube-prometheus-stack
 
