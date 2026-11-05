@@ -25,6 +25,7 @@ server:
     enabled: true
     size: 10Gi
     storageClass: local-path
+    storageClassName: local-path
     accessMode: ReadWriteOnce
 
   # --- Audit Storage disable ---
