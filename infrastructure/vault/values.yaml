@@ -1,0 +1,57 @@
+global:
+  enabled: true
+  tlsDisable: true
+
+# --- Injector ---
+injector:
+  enabled: true
+
+# --- Server Vault ---
+server:
+  standalone:
+    enabled: true
+
+# --- Resources ---
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+# --- Data Storage ---
+dataStorage:
+  enabled: true
+  size: 10Gi
+  storageClass: local-path
+  accessMode: ReadWriteOnce
+
+# --- Audit Storage disable ---
+auditStorage:
+  enabled: false
+
+# --- Vault Configs ---
+config: |
+  ui = true
+
+  listener "tcp" {
+    tls_disable     = 1
+    address         = "[::]:8200"
+    cluster_address = "[::]:8200"
+  }
+
+  storage "file" {
+    path = "/vault/data"
+  }
+
+# --- Readiness / Liveness ---
+
+readinessProbe:
+  enabled: true
+  path: "/v1/sys/health?standbyok=true&sealedcode=204&uninitcode=204"
+
+livenessProbe:
+  enabled: true
+  path: "/v1/sys/health?standbyok=true"
+  initialDelaySeconds: 60
