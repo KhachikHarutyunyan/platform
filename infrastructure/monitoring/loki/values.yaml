@@ -16,6 +16,14 @@ singleBinary:
       cpu: 500m
       memory: 512Mi
 
+# --- SimpleScalable ---
+read:
+  replicas: 0
+write:
+  replicas: 0
+backend:
+  replicas: 0
+
 # --- ServiceMonitor ---
 monitoring:
   serviceMonitor:
