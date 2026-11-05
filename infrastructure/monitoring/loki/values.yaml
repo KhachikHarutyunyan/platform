@@ -74,3 +74,7 @@ memcached:
 # --- Disable Canary (Enable in prod) ---
 lokiCanary:
   enabled: false
+
+# --- Disable Helm tests (Enable in prod) ---
+test:
+  enabled: false
