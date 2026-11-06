@@ -30,6 +30,8 @@ spec:
       namespace: "vault"
     - server: https://kubernetes.default.svc
       namespace: "external-secrets"
+    - server: https://kubernetes.default.svc
+      namespace: "monitoring"
   clusterResourceWhitelist:
     - group: rbac.authorization.k8s.io
       kind: ClusterRole
