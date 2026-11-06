@@ -16,6 +16,7 @@ spec:
     - "https://grafana-community.github.io/helm-charts"
     - "https://fluent.github.io/helm-charts"
     - "https://helm.releases.hashicorp.com"
+    - "https://charts.external-secrets.io"
   destinations:
     - server: https://kubernetes.default.svc
       namespace: "argocd"
@@ -27,6 +28,8 @@ spec:
       namespace: "monitoring"
     - server: https://kubernetes.default.svc
       namespace: "vault"
+    - server: https://kubernetes.default.svc
+      namespace: "external-secrets"
   clusterResourceWhitelist:
     - group: rbac.authorization.k8s.io
       kind: ClusterRole
@@ -48,6 +51,14 @@ spec:
       kind: ValidatingAdmissionPolicyBinding
     - group: gateway.networking.k8s.io
       kind: GatewayClass
+    - group: ""
+      kind: "ServiceAccount"
+    - group: "rbac.authorization.k8s.io"
+      kind: "Role"
+    - group: "rbac.authorization.k8s.io"
+      kind: "RoleBinding"
+    - group: "external-secrets.io"
+      kind: "ClusterSecretStore"
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
