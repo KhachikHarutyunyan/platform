@@ -99,5 +99,5 @@ spec:
     - "https://github.com/KhachikHarutyunyan/platform.git"
   destinations:
     - server: https://kubernetes.default.svc
-      namespace: moniotoring
+      namespace: monitoring
   clusterResourceWhitelist: []
