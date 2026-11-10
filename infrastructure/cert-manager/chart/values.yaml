@@ -62,6 +62,8 @@ webhook:
           - namespaceSelector: {}
           - ipBlock:
               cidr: 192.168.56.0/24
+          - ipBlock: # ip range for kind
+              cidr: 172.18.0.0/24
         ports:
           - port: 10260
 
