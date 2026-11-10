@@ -71,6 +71,7 @@ webhook:
           - port: 10260
 
 startupapicheck:
+  enabled: false
   timeout: 5m
 
 # --- CA Injector ---
