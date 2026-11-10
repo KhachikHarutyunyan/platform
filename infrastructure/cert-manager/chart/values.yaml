@@ -39,6 +39,9 @@ webhook:
   replicaCount: 1
   timeoutSeconds: 30
   securePort: 10260
+  extraArgs:
+    - "--tls-min-version=VersionTLS12"
+    - "--tls-cipher-suites=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"
   resources:
     requests:
       cpu: 20m
