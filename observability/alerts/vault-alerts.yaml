@@ -6,7 +6,7 @@ metadata:
   labels:
     release: kube-prometheus-stack
 spec:
-  group:
+  groups:
     - name: vault
       interval: 30s
       rules:
