@@ -64,13 +64,13 @@ grafana:
     timeoutSeconds: 10
     failureThreshold: 10
     
-  startupProbe:
-    enabled: true
-    httpGet:
-      path: /api/health
-      port: 3000
-    periodSeconds: 10
-    failureThreshold: 30
+  # startupProbe:
+  #   enabled: true
+  #   httpGet:
+  #     path: /api/health
+  #     port: 3000
+  #   periodSeconds: 10
+  #   failureThreshold: 30
 
   
   persistence:
