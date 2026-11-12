@@ -1,0 +1,37 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: vault-alerts
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+spec:
+  group:
+    - name: vault
+      interval: 30s
+      rules:
+        - alert: VaultSealed
+          expr: vault_core_unsealed == 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Vault is sealed ({{ $labels.instance }})"
+            description: "Vault pod {{ $labels.pod }} is sealed and cannot serve requests. Run 'Vault operator unseal' with  the unseal key from vault-init.json."
+          
+        - alert: VaultToomanyPendingTokens
+          expr: avg(vault_token_create_count - vault_token_store_count) > 0
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Too many pending tokens ({{ $labels.instance }})"
+        
+        - alert: VaultAuditLogAbsent
+          expr: rate(vault_audit_entries_total[5m]) == 0
+          for: 10m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Vault audit log is silent"
+            description: "No audit entries in 10 minutes. Check audit device status with 'vault audit list'."

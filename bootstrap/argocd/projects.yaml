@@ -7,7 +7,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  description: "Core platform infrastructure (network, gateway, certs, moniotoring, vault)"
+  description: "Core platform infrastructure (network, gateway, certs, monitoring, vault)"
   sourceRepos:
     - "https://github.com/KhachikHarutyunyan/platform.git"
     - "https://charts.jetstack.io"

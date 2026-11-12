@@ -57,17 +57,7 @@ grafana:
     limits:
       cpu: 200m
       memory: 512Mi
-  sidecar:
-    resources:                     # новое: ограничения для sidecar
-      requests: { cpu: 10m, memory: 32Mi }
-      limits:   { cpu: 50m, memory: 64Mi }
-    dashboards:
-      enabled: true
-      label: grafana_dashboard
-      labelValue: "1"
-      searchNamespace: ALL
-      folderAnnotation: grafana_folder
-      
+
   livenessProbe:
     initialDelaySeconds: 60
     timeoutSeconds: 10
@@ -78,20 +68,14 @@ grafana:
     timeoutSeconds: 10
     failureThreshold: 10
     
-  # startupProbe:
-  #   enabled: true
-  #   httpGet:
-  #     path: /api/health
-  #     port: 3000
-  #   periodSeconds: 10
-  #   failureThreshold: 30
-
-  
   persistence:
     enabled: true
     size: 2Gi
     storageClassName: local-path
   sidecar:
+    resources:
+      requests: { cpu: 10m, memory: 32Mi }
+      limits:   { cpu: 50m, memory: 64Mi }
     dashboards:
       enabled: true
       label: grafana_dashboard

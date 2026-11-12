@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboard-loki-overview
+  namespace: monitoring
+  labels:
+    grafana_dashboard: "1"
+  annotations:
+    grafana_folder: "Observability"
+data:
+  loki-overview.json: |
+    {
+      "title": "Loki Overview",
+      "uid": "loki-overview",
+      "panels": [
+        {
+          "type": "timeseries",
+          "title": "Log volume by namespace",
+          "datasource": { "type": "loki", "uid": "loki" },
+          "targets": [
+            {
+              "expr": "sum by (namespace) (count_over_time({job=\"fluent-bit\"}[5m]))",
+              "refId": "A"
+            }
+          ],
+          "gridPos": { "h": 8, "w": 24, "x": 0, "y": 0 }
+        }
+      ],
+      "schemaVersion": 39,
+      "version": 1
+    }
