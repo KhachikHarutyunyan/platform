@@ -76,7 +76,7 @@ grafana:
       labelValue: "1"
       searchNamespace: ALL
       folderAnnotation: grafana_folder
-  additionalDataSource:
+  additionalDataSources:
     - name: loki
       type: loki
       url: http://loki.monitoring.svc.cluster.local:3100
