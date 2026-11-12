@@ -54,6 +54,16 @@ grafana:
     limits:
       cpu: 200m
       memory: 256Mi
+  livenessProbe:
+    initialDelaySeconds: 60
+    timeoutSeconds: 10
+    failureThreshold: 10
+    
+  readinessProbe:
+    initialDelaySeconds: 30
+    timeoutSeconds: 10
+    failureThreshold: 10
+
   
   persistence:
     enabled: true
@@ -72,6 +82,10 @@ grafana:
       url: http://loki.monitoring.svc.cluster.local:3100
       access: proxy
       isDefault: false
+  grafana.ini:
+    database:
+      sqlite3_busy_timeout: 10000
+      wal: true
 
 # --- Node Exporter ---
 nodeExporter:
