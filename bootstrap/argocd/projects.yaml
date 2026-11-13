@@ -33,6 +33,8 @@ spec:
       namespace: "external-secrets"
     - server: https://kubernetes.default.svc
       namespace: "kube-system"
+    - server: https://kubernetes.default.svc
+      namespace: "default"
   clusterResourceWhitelist:
     - group: rbac.authorization.k8s.io
       kind: ClusterRole
