@@ -60,6 +60,8 @@ spec:
       kind: "Role"
     - group: "rbac.authorization.k8s.io"
       kind: "RoleBinding"
+    - group: "networking.k8s.io"
+      kind: "NetworkPolicy"
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject

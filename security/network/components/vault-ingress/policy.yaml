@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: vault-ingress
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: vault
+      component: server
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: external-secrets
+          podSelector:
+            matchLabels:
+              app.kubernetes.io/name: external-secrets
+      ports:
+        - protocol: TCP
+          port: 8200
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+      ports:
+        - protocol: TCP
+          port: 8200
