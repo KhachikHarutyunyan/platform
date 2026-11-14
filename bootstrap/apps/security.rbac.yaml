@@ -13,8 +13,7 @@ spec:
     repoURL: "https://github.com/KhachikHarutyunyan/platform.git"
     targetRevision: main
     path: security/rbac/overlays
-    directory:
-      recurse: true
+    kustomize: {}
   destination:
     server: https://kubernetes.default.svc
     namespace: default
