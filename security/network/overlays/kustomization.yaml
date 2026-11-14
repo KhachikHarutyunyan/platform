@@ -4,3 +4,4 @@ resources:
   - cert-manager
   - monitoring
   - vault
+  - external-secrets
