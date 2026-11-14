@@ -6,3 +6,4 @@ resources:
 components:
   - ../../components/loki-ingress
   - ../../components/grafana-ingress
+  - ../../components/fluent-bit-egress
