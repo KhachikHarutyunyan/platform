@@ -1,25 +1,25 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: security-rbac
-  namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "6"
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: platform
-  source:
-    repoURL: "https://github.com/KhachikHarutyunyan/platform.git"
-    targetRevision: main
-    path: security/rbac/overlays
-    kustomize: {}
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: default
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: security-rbac
+#   namespace: argocd
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "6"
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: platform
+#   source:
+#     repoURL: "https://github.com/KhachikHarutyunyan/platform.git"
+#     targetRevision: main
+#     path: security/rbac/overlays
+#     kustomize: {}
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: default
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#       - CreateNamespace=true
